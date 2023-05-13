@@ -1,4 +1,5 @@
 //Facundo Martinez Zuffi
+//legajo 93489/0
 //tp1 comision 1
 int pantalla ;
 int segundos;
