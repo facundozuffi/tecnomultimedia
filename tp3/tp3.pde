@@ -1,5 +1,7 @@
-boolean buttonPressed = false;
-boolean buttonClicked = true;  
+//facundo zuffi 93489/0
+//
+boolean oto = false;
+boolean Apretar = true;  
 
 int cant = 15;
 PImage[] pantalla = new PImage[cant];
@@ -13,7 +15,7 @@ void setup() {
   for (int i = 0; i < cant; i++) {
     pantalla[i] = loadImage("pantalla" + i + ".jpg");
   }
- pantallaActual = 0;  // Establecer la posición de la imagen de la portada
+ pantallaActual = 0;  
 }
 
 
@@ -23,7 +25,7 @@ void draw() {
 
 
 
-  if (buttonClicked) {
+  if (Apretar) {
     if (pantallaActual == 0) {
       fill(0);
       image(pantalla[0], 0, 0, width, height);
@@ -93,11 +95,11 @@ void draw() {
 }
 
 void boton(float x, float y, float width, float height) {
-  boolean isMouseOverButton = mouseX >= x - width/2 && mouseX <= x + width/2 &&
+  boolean Sobre = mouseX >= x - width/2 && mouseX <= x + width/2 &&
                               mouseY >= y - height/2 && mouseY <= y + height/2;
 
-  if (isMouseOverButton && mousePressed && !buttonPressed) {
-    buttonPressed = true;
+  if (Sobre && mousePressed && !oto) {
+    oto = true;
     if (pantallaActual >= 0 && pantallaActual <= 14) {
       if (pantallaActual == 12 && x == 100) {
         pantallaActual = 13;
@@ -108,15 +110,15 @@ void boton(float x, float y, float width, float height) {
       }
     }
   } else if (!mousePressed) {
-    buttonPressed = false;
+    oto = false;
   }
 
-  if (buttonPressed && !buttonClicked) {
-    buttonClicked = true;
+  if (oto && !Apretar) {
+    Apretar = true;
   }
 
   rectMode(CENTER);
-  if (isMouseOverButton) {
+  if (Sobre) {
     fill(200);
   } else {
     fill(255);
@@ -130,24 +132,24 @@ void boton(float x, float y, float width, float height) {
 }
 
 void botonCargarPantalla12(float x, float y, float width, float height) {
-  boolean isMouseOverButton = mouseX >= x - width/2 && mouseX <= x + width/2 &&
+  boolean Sobre = mouseX >= x - width/2 && mouseX <= x + width/2 &&
                               mouseY >= y - height/2 && mouseY <= y + height/2;
 
-  if (isMouseOverButton && mousePressed && !buttonPressed) {
-    buttonPressed = true;
+  if (Sobre && mousePressed && !oto) {
+    oto = true;
     if (pantallaActual == 13) {
       pantallaActual = 12;
     }
   } else if (!mousePressed) {
-    buttonPressed = false;
+    oto = false;
   }
 
-  if (buttonPressed && !buttonClicked) {
-    buttonClicked = true;
+  if (oto && !Apretar) {
+    oto = true;
   }
 
   rectMode(CENTER);
-  if (isMouseOverButton) {
+  if (Sobre) {
     fill(200);
   } else {
     fill(255);
@@ -157,5 +159,5 @@ void botonCargarPantalla12(float x, float y, float width, float height) {
   fill(0);
   textSize(16);
   textAlign(CENTER, CENTER);
-  text("Cargar Pantalla 12", x, y);
+  text("Volver", x, y);
 }
