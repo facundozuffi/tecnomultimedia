@@ -16,7 +16,7 @@ void setup() {
 
 void draw() {
   background(255);
-  int tiempoTranscurrido = (frameCount * 1000 / 60) % 12000; // 3 imágenes x 4 segundos cada una
+  int tiempoTranscurrido = (frameCount * 1000 / 60) % 12000; 
   int tiempoImagen = tiempoTranscurrido % 4000;
 
   if (tiempoTranscurrido < 4000) {
@@ -24,8 +24,8 @@ void draw() {
     fill(255, 0, 0);
     textSize(32);
     textAlign(CENTER, CENTER);
-    float posX = min(tiempoImagen * width / 4000, width / 2); // Limita el movimiento del texto a la mitad de la anchura
-    float posY = min(tiempoImagen * height / 4000, height / 2); // Limita el movimiento del texto a la mitad de la altura
+    float posX = min(tiempoImagen * width / 4000, width / 2); 
+    float posY = min(tiempoImagen * height / 4000, height / 2); 
     text("Fifa 23 un juego increible", posX, posY);
   } else if (tiempoTranscurrido < 8000) {
     image(imagen2, 0, 0, width, height);
@@ -38,7 +38,7 @@ void draw() {
     fill(0, 255, 0);
     textSize(32);
     textAlign(CENTER, CENTER);
-    float posY = min(tiempoImagen * height / 4000, height / 2); // Limita el movimiento del texto a la mitad de la altura
+    float posY = min(tiempoImagen * height / 4000, height / 2); 
     text("Y los nuevos equipos femeninos", width/2, posY);
   }
 
@@ -55,6 +55,6 @@ void draw() {
 void mouseClicked() {
   int tiempoTranscurrido = (frameCount * 1000 / 60) % 12000;
   if (tiempoTranscurrido >= 8000 && mouseX >= 350 && mouseX <= 450 && mouseY >= 500 && mouseY <= 550) {
-    frameCount = 0; // Reinicia el contador de frames
+    frameCount = 0; 
   }
 }
