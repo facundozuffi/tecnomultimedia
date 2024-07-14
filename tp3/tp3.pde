@@ -1,11 +1,18 @@
+//facundo martinez zuffi comision 2 legajo 93489/0
+//https://youtu.be/bLpQrit525I
+
+
+
+
+
 PImage img;
-float tamañoRectanguloInicial = 50;  // Tamaño inicial del rectángulo
-float tamañoRectangulo = tamañoRectanguloInicial;  // Variable para el tamaño actual del rectángulo
+float tamañoRectanguloInicial = 50; 
+float tamañoRectangulo = tamañoRectanguloInicial;  
 
 void setup() {
   size(800, 400);
   img = loadImage("imagen1a.jpg");
-  rectangulo(width - 200, height/2);  // Llama a rectangulo() con coordenadas ajustadas para la derecha
+  rectangulo(width - 200, height/2);  
 }
 
 void draw() {
@@ -15,30 +22,30 @@ void draw() {
 void rectangulo(float centerX, float centerY) {
   translate(centerX, centerY);
   for (int i = 0; i < 7; i++) {
-    float size = tamañoRectangulo * (7 - i);  // Calcula el tamaño basado en tamañoRectangulo
+    float size = tamañoRectangulo * (7 - i);  
     rect(-size/2, -size/2, size, size);
   }
 }
 
 void mouseClicked() {
   rectangulo(width - 200, height/2); 
-  color c = color(random(255), random(255), random(255));  // Genera un color aleatorio
-  fill(c);  // Vuelve a dibujar los rectángulos al hacer clic
+  color c = color(random(255), random(255), random(255));  
+  fill(c);  
 }
 
 void keyPressed() {
   if (key == 'a') {
-    tamañoRectangulo += 10;  // Incrementa el tamaño del rectángulo
-    rectangulo(width - 200, height/2);  // Vuelve a dibujar los rectángulos con el nuevo tamaño
+    tamañoRectangulo += 10;  
+    rectangulo(width - 200, height/2);  
   } else if (key == 's') {
-    tamañoRectangulo -= 10;  // Disminuye el tamaño del rectángulo
+    tamañoRectangulo -= 10;  
     if (tamañoRectangulo < 10) {
-      tamañoRectangulo = 10;  // Limita el tamaño mínimo del rectángulo
+      tamañoRectangulo = 10;  
     }
-    rectangulo(width - 200, height/2);  // Vuelve a dibujar los rectángulos con el nuevo tamaño
+    rectangulo(width - 200, height/2);  
   } else if (key == 'r') {
     fill(255);
-    tamañoRectangulo = tamañoRectanguloInicial;  // Restaura el tamaño inicial del rectángulo
-    rectangulo(width - 200, height/2);  // Vuelve a dibujar los rectángulos con el tamaño inicial
+    tamañoRectangulo = tamañoRectanguloInicial;  
+    rectangulo(width - 200, height/2);  
   }
 }
